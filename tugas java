@@ -1,0 +1,35 @@
+import javax.swing.JOptionPane;
+
+
+public class Main {
+   
+    public static void main(String [] args ) {
+       String objectt,catchh,classs,again,privatee;
+       int nilai1,nilai2,nilai3,nilai4,jum,kur,kal;
+       double tryy,exceptionn,gi,staticc;
+       
+       objectt=JOptionPane.showInputDialog("Masukan angka pertama untuk penjumlahan : ");
+       catchh=JOptionPane.showInputDialog("Masukan angka kedua untuk pengurangan   : ");
+       classs=JOptionPane.showInputDialog("Masukan angka ketiga untuk perkalian    :  ");
+       again=JOptionPane.showInputDialog("Masukan angka pembagian ke-1   : ");
+       privatee=JOptionPane.showInputDialog("Masukan angka pembagian ke-2 : ");
+       
+       nilai1=Integer.parseInt(objectt);
+       nilai2=Integer.parseInt(catchh);
+       nilai3=Integer.parseInt(classs);
+       tryy=Double.parseDouble(again);
+       staticc=Double.parseDouble(privatee);
+       
+       jum=nilai1+nilai1;
+       kur=nilai2-nilai2;
+       kal=nilai3*nilai3;
+       gi=tryy/staticc;
+       
+       JOptionPane.showMessageDialog(null,"Hasil Penjumlahan : "
+       +jum+"\nHasil Perkalian : "+kal+"\nHasil pengurangan : "+kur+"\nHasil Pembagian : "+gi,"Kalkulator Sederhana",JOptionPane.INFORMATION_MESSAGE);
+       
+       
+             
+        
+       }
+    }
