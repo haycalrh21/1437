@@ -1,0 +1,120 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication1;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Windows 7 Pro
+ */
+public class JavaApplication1 {
+    
+    int harga_barang, jumlah_barang, kode_barang;
+    double total_harga, diskon;
+    String nama_pembeli, nama_barang, bonus;
+    Scanner input = new Scanner(System.in);
+    
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) { 
+        new JavaApplication1();
+    }
+
+    public JavaApplication1() {
+        this.kode_barang = Integer.parseInt(
+            JOptionPane.showInputDialog(
+                "1. Kode-01 = Sepeda BMX - Rp 200"
+                + "\n" +
+                "2. Kode-02 = Sepeda Mini - Rp 300"
+                 + "\n" +
+                "3. Kode-03 = Sepeda Gunung - Rp 500"
+                + "\n" +
+                "4. Kode-04 = Sepeda Lipat - Rp 400"
+            )
+        );
+        this.pilih_barang();
+    }
+    
+    
+    void pilih_barang() {
+        switch(this.kode_barang) {
+            case 1 :
+                this.nama_barang = "Sepeda BMX";
+                this.harga_barang = 200;
+                this.jumlah_beli();
+                this.customer_data();
+                this.jumlah_harga();
+                this.diskon();
+                this.total();
+                this.struk();
+                break;
+            case 2 :
+                this.nama_barang = "Sepeda Mini";
+                this.harga_barang = 300;
+                break;
+            case 3 :
+                this.nama_barang = "Sepeda Gunung";
+                this.harga_barang = 500;
+                break;
+            case 4 :
+                this.nama_barang = "Sepeda Lipat";
+                this.harga_barang = 400;
+                break;
+            default :
+                System.exit(0);
+        }
+        
+    }
+    
+    public void jumlah_beli() {
+        this.jumlah_barang = Integer.parseInt(
+             JOptionPane.showInputDialog("Jumlah beli = ")
+        );
+    }
+    
+    public void customer_data() {
+        this.nama_pembeli = JOptionPane.showInputDialog("Nama Customer = ");
+    }
+    
+    int jumlah_harga() {
+        return jumlah_barang * harga_barang;
+    }
+    
+    double total() {
+        return jumlah_harga() - diskon();
+    }
+    
+    double diskon() {
+        if(this.jumlah_barang > 2) {
+            this.diskon = jumlah_harga() * 0.05;
+        }
+        return this.diskon;
+    }
+    
+    void struk() {
+        JOptionPane.showMessageDialog(
+            null, 
+            "- Nama Customer = " + nama_pembeli
+            + "\n" +
+            "- Kode Barang = " + kode_barang
+            + "\n" +
+            "- Nama Sepeda = " + nama_barang
+            + "\n" +
+            "- Diskon = " + diskon()
+            + "\n" +
+            "- Jumlah harga = " + jumlah_harga()
+            + "\n" +
+            "- Bonus = " + "ga ada bonus"
+            + "\n" +
+            "- Total bayar = " + jumlah_harga()
+        );
+    }
+    
+}
